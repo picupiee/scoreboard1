@@ -3,9 +3,13 @@ import "../global.css";
 
 export default function RootLayout() {
   return (
-    <Stack screenOptions={{ headerShown: false }}>
+    <Stack>
       <Stack.Screen name="(tabs)" />
       <Stack.Screen name="index" />
+      <Stack.Screen name="game-setup" />
+      <Stack.Screen name="history" />
+      <Stack.Screen name="scoreboard" />
+      <Stack.Screen name="settings" />
     </Stack>
   );
 }
