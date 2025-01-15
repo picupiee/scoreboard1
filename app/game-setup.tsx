@@ -40,6 +40,14 @@ export default function GameSetup() {
       Alert.alert("Error", "Please enter a valid name");
       return;
     }
+    if (numRounds < 1 && !isLimitlessRounds) {
+      Alert.alert("Error", "Please enter a valid number of rounds !");
+      return;
+    }
+    if (goalScore.trim() !== "" && isNaN(parseInt(goalScore, 10))) {
+      Alert.alert("Error", "Please enter a valid goal score !");
+      return;
+    }
 
     const gameData = {
       gameName,
@@ -132,7 +140,7 @@ export default function GameSetup() {
       <View className="mb-4">
         <Text className="text-lg">Goal Score (Optional):</Text>
         <TextInput
-          className="text-lg border-b border-gray-600 rounded px-3 py-2 w-8"
+          className="text-lg border-b border-gray-600 rounded px-3 py-2 w-16 text-center"
           value={goalScore}
           onChangeText={setGoalScore}
           keyboardType="numeric"
@@ -143,6 +151,7 @@ export default function GameSetup() {
         <TouchableOpacity
           className="bg-blue-600 py-2 px-4 rounded"
           onPress={handleStartGame}
+          accessibilityHint="Start Game"
         >
           <Text className="text-lg font-bold text-white">Start Game</Text>
         </TouchableOpacity>
