@@ -57,10 +57,13 @@ export default function GameSetup() {
       goalScore: goalScore.trim() === "" ? undefined : parseInt(goalScore, 10),
     };
 
-    // router.push({
-    //   pathname: "/scoreboard",
-    //   params: gameData,
-    // });
+    router.push({
+      pathname: "/gameSetupExample",
+      params: {
+        ...gameData,
+        teamNames: JSON.stringify(gameData.teamNames),
+      },
+    });
     console.log(gameData);
   };
 
