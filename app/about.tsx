@@ -11,6 +11,14 @@ export default function About() {
           This app is build by PicuPiee, with help from Gemini AI provided by
           Google via Project IDX
         </Text>
+        <TouchableOpacity
+          onPress={() => router.push("/_sitemap")}
+          className="mt-4"
+        >
+          <Text className="text-center font-bold text-xl text-white bg-blue-500 p-2 rounded-lg">
+            See Sitemap for this App
+          </Text>
+        </TouchableOpacity>
         <View className="mt-4">
           <TouchableOpacity onPress={() => router.push("/")}>
             <Text className="text-center font-bold text-xl text-white bg-blue-500 p-2 rounded-lg">

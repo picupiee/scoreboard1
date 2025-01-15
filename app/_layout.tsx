@@ -11,6 +11,7 @@ export default function RootLayout() {
       <Stack.Screen name="scoreboard" />
       <Stack.Screen name="settings" />
       <Stack.Screen name="about" options={{ headerShown: false }} />
+      <Stack.Screen name="gameSetupExample" options={{ headerShown: false }} />
     </Stack>
   );
 }
