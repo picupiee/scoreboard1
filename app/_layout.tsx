@@ -10,6 +10,7 @@ export default function RootLayout() {
       <Stack.Screen name="history" />
       <Stack.Screen name="scoreboard" />
       <Stack.Screen name="settings" />
+      <Stack.Screen name="about" options={{ headerShown: false }} />
     </Stack>
   );
 }
