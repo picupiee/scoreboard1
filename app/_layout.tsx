@@ -6,10 +6,11 @@ export default function RootLayout() {
     <Stack>
       <Stack.Screen name="(tabs)" />
       <Stack.Screen name="index" />
-      <Stack.Screen name="game-setup" />
-      <Stack.Screen name="history" />
-      <Stack.Screen name="scoreboard" />
-      <Stack.Screen name="settings" />
+      <Stack.Screen name="home" options={{ headerShown: false }} />
+      <Stack.Screen name="game-setup" options={{ title: "Setup a New Game" }} />
+      <Stack.Screen name="history" options={{ title: "Game History" }} />
+      <Stack.Screen name="scoreboard" options={{ headerShown: false }} />
+      <Stack.Screen name="settings" options={{ title: "Settings" }} />
       <Stack.Screen name="about" options={{ headerShown: false }} />
       <Stack.Screen name="gameSetupExample" options={{ headerShown: false }} />
     </Stack>

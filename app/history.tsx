@@ -3,8 +3,8 @@ import React from "react";
 
 export default function GameHistory() {
   return (
-    <View>
-      <Text>GameHistory</Text>
+    <View className="h-full flex items-center justify-center">
+      <Text className="text-center text-3xl font-bold">Coming Soon</Text>
     </View>
   );
 }

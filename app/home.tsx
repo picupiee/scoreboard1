@@ -4,7 +4,7 @@ import { Text, TouchableOpacity, View } from "react-native";
 export default function Home() {
   const router = useRouter();
   return (
-    <View className="h-full w-full">
+    <View className="h-full w-full mt-10">
       <View className="flex items-center justify-center mt-8">
         <Text className="font-medium text-3xl text-white py-2 px-4 rounded-lg bg-blue-500">
           Scoreboard App

@@ -128,7 +128,7 @@ export default function GameSetup() {
         <View className="mb-4">
           <Text className="text-lg">Number of Rounds :</Text>
           <TextInput
-            className="border-b border-gray-600 rounded px-3 py-2 w-8"
+            className="border-b border-gray-600 rounded px-3 py-2 w-16 text-center"
             value={numRounds.toString()}
             onChangeText={(text) => setNumRounds(parseInt(text, 10) || 0)}
             keyboardType="numeric"
