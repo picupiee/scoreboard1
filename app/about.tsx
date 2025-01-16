@@ -5,7 +5,7 @@ import { router } from "expo-router";
 export default function About() {
   return (
     <View className="w-full">
-      <View className="flex items-center justify-center h-full">
+      <View className="flex items-center justify-center h-full mt-4">
         <Text className="font-bold text-xl">ScoreBoard V1</Text>
         <Text className="mt-2 font-medium text-center">
           This app is build by PicuPiee, with help from Gemini AI provided by

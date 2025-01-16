@@ -34,9 +34,15 @@ export default function SetupExample() {
 
       <TouchableOpacity
         onPress={() => router.back()}
-        className="bg-blue-500 w-2/5"
+        className="bg-blue-500 w-2/5 p-2 rounded mb-4"
       >
-        <Text className="text-center font-bold">Go Back to Setup Game</Text>
+        <Text className="text-center font-bold text-white">Go Back to Setup Game</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => router.push("/home")}
+        className="bg-blue-500 w-2/5 p-2 rounded"
+      >
+        <Text className="text-center font-bold text-white">Go to Home</Text>
       </TouchableOpacity>
     </View>
   );

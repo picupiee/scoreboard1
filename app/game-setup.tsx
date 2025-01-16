@@ -58,7 +58,7 @@ export default function GameSetup() {
     };
 
     router.push({
-      pathname: "/gameSetupExample",
+      pathname: "/scoreboard",
       params: {
         ...gameData,
         teamNames: JSON.stringify(gameData.teamNames),
