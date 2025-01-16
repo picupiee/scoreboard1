@@ -15,7 +15,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.picupiee.scoreboard1"
     },
     "web": {
       "bundler": "metro",
@@ -42,8 +43,9 @@
         "origin": false
       },
       "eas": {
-        "projectId": "db19a86b-3b67-4d20-82d7-9e79b16bb72b"
+        "projectId": "26566b79-73af-43ab-a046-4380505cd1e6"
       }
-    }
+    },
+    "owner": "picupiee"
   }
 }
