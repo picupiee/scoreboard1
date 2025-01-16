@@ -11,9 +11,13 @@ export default function Scoreboard() {
   const numRounds = parseInt(params.numRounds, 10);
   const goalScore = parseInt(params.goalScore, 10);
   const [modalVisible, setModalVisible] = useState(false);
-  const [roundHistory, setRoundHistory] = useState<{round: number; scores: [number, number, number, number]; submittedScores: [number, number, number, nubmer]}[]>([]);
   const [scores, setScores] = useState(Array(4).fill(0));
   const [roundScores, setRoundScores] = useState(Array(4).fill(0));
+
+  const [roundHistory, setRoundHistory] = useState<
+    { round: number; scores: [number, number, number, number]; submittedScores: [number, number, number, number] }[]
+  >([]);
+
 
   const handleEndRounds = () => {
     setModalVisible(true);
