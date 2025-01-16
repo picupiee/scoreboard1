@@ -4,6 +4,7 @@ import {
   Alert,
   Modal,
   Platform,
+  ScrollView,
   Text,
   TextInput,
   TouchableOpacity,
@@ -172,9 +173,16 @@ export default function Scoreboard() {
         </TouchableOpacity>
       </View>
 
-      <View className="p-4 mx-6 sm:mx-10">
+      <Text className="font-bold text-2xl text-center border-b-8 border-slate-400 border-spacing-5 px-10">
+        Round History
+      </Text>
+
+      <ScrollView
+        className="p-4 mx-6 sm:mx-10 mb-2"
+        showsVerticalScrollIndicator={false}
+      >
         <RoundHistoryTable roundHistory={roundHistory} teamNames={teamNames} />
-      </View>
+      </ScrollView>
     </View>
   );
 }
