@@ -47,11 +47,19 @@ export default function GameSetup() {
     }
 
     if (numRounds < 1 && !isLimitlessRounds) {
-      Alert.alert("Error", "Please enter a valid number of rounds !");
+      if (Platform.OS === "web") {
+        window.alert("Please eneter a vaild number of rounds !");
+      } else {
+        Alert.alert("Error", "Please enter a valid number of rounds !");
+      }
       return;
     }
     if (goalScore.trim() !== "" && isNaN(parseInt(goalScore, 10))) {
-      Alert.alert("Error", "Please enter a valid goal score !");
+      if (Platform.OS === "web") {
+        window.alert("Please enter a valid goal score !");
+      } else {
+        Alert.alert("Error", "Please enter a valid goal score !");
+      }
       return;
     }
 
