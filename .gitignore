@@ -36,3 +36,8 @@ yarn-error.*
 *.tsbuildinfo
 
 app-example
+
+.idx
+dev.nix
+
+.vscode/settings.json
