@@ -11,77 +11,51 @@ import {
   View,
 } from "react-native";
 import RoundHistoryTable from "@/components/RoundHistoryTable";
-import useGameStore from "./_stores/gameStore";
 
 export default function Scoreboard() {
   const router = useRouter();
   const params = useLocalSearchParams();
-  const teamNames = useGameStore((state) => state.teamNames);
-  const numRounds = useGameStore((state) => state.numRounds);
-  const goalScore = useGameStore((state) => state.goalScore);
-  const scores = useGameStore((state) => state.scores);
-  const roundScores = useGameStore((state) => state.roundScores);
-  const roundHistory = useGameStore((state) => state.roundHistory);
-
-  // Modal state for submitting score after current round end
+  const teamNames = JSON.parse(params.teamNames);
+  const numRounds = parseInt(params.numRounds, 10);
+  const goalScore = parseInt(params.goalScore, 10);
   const [modalVisible, setModalVisible] = useState(false);
+  const [scores, setScores] = useState(Array(4).fill(0));
+  const [roundScores, setRoundScores] = useState(Array(4).fill(0));
 
-  const addRoundHistory = useGameStore((state) => state.addRoundHistory);
-  const setScores = useGameStore((state) => state.setScores);
-  const setRoundScores = useGameStore((state) => state.setRoundScores);
-  const setRoundHistory = useGameStore((state) => state.setRoundHistory);
-  const setModalVisibleInStore = useGameStore((state) => state.setModalVisible);
-  const scoresInStore = useGameStore((state) => state.scores);
-  const roundHistoryInStore = useGameStore((state) => state.roundHistory);
+  const [roundHistory, setRoundHistory] = useState<
+    {
+      round: number;
+      scores: [number, number, number, number];
+      submittedScores: [number, number, number, number];
+    }[]
+  >([]);
 
-  // const [roundHistory, setRoundHistory] = useState<
-  //   {
-  //     round: number;
-  //     scores: [number, number, number, number];
-  //     submittedScores: [number, number, number, number];
-  //   }[]
-  // >([]);
-
-  const handleModal = () => {
-    // was handleEndRounds
+  const handleEndRounds = () => {
     setModalVisible(true);
   };
 
-  const handleSubmitRound = () => {
-    // was handleSubmitScore
-    const updatedScores = scoresInStore.map((score, index) => {
-      return score + roundScores[index];
-    });
+  const handleInputScore = () => {
+    const updatedScores = scores.map(
+      (score, index) => score + roundScores[index]
+    );
     setScores(updatedScores);
 
-    // Update roundHistory
-    const currentRound = roundHistoryInStore.length + 1;
-    const roundData = {
-      round: currentRound,
-      scores: updatedScores,
-      submittedScores: [...roundScores] as [number, number, number, number],
-    };
-    addRoundHistory(roundData);
+    setRoundHistory([
+      ...roundHistory,
+      {
+        round: roundHistory.length + 1,
+        scores: [...updatedScores] as [number, number, number, number],
+        submittedScores: [...roundScores] as [number, number, number, number],
+      },
+    ]);
+
+    console.log(roundHistory);
 
     // Reset the round scores
     setRoundScores(Array(4).fill(0));
 
     // Close the modal
-    setModalVisibleInStore(false);
-
-    // const updatedScores = scores.map(
-    //   (score, index) => score + roundScores[index]
-    // );
-    // setScores(updatedScores);
-
-    // setRoundHistory([
-    //   ...roundHistory,
-    //   {
-    //     round: roundHistory.length + 1,
-    //     scores: [...updatedScores] as [number, number, number, number],
-    //     submittedScores: [...roundScores] as [number, number, number, number],
-    //   },
-    // ]);
+    setModalVisible(false);
   };
 
   const handleRoundScoreChange = (index: number, text: string) => {
@@ -118,12 +92,7 @@ export default function Scoreboard() {
   return (
     <View className="h-full bg-slate-600">
       <View className="flex flex-row flex-wrap sm:gap-8 gap-4 items-center justify-center m-2 mt-10 p-5 sm:m-4 sm:p-10">
-        <Text>{teamNames.join(", ")}</Text>
-        <Text>{numRounds}</Text>
-        <Text>{goalScore}</Text>
-        <Text>{roundHistory.length}</Text>
-
-        {/* {teamNames.map((name, index) => (
+        {teamNames.map((name, index) => (
           <View
             key={index}
             className="w-44 border border-gray-400 p-4 flex-col items-center justify-center"
@@ -135,11 +104,11 @@ export default function Scoreboard() {
               </Text>
             </View>
           </View>
-        ))} */}
+        ))}
       </View>
       <View className="mt-2 p-4 sm:mx-10 mx-5 flex-row items-center justify-around">
         <TouchableOpacity
-          onPress={handleModal}
+          onPress={handleEndRounds}
           className="bg-black w-40 h-24 rounded flex justify-center"
         >
           <Text className="text-white text-lg font-semibold text-center ">
@@ -178,7 +147,7 @@ export default function Scoreboard() {
             <View className="flex flex-row items-center justify-center gap-4 mt-5">
               <TouchableOpacity
                 className="w-1/3 sm:w-1/4"
-                onPress={handleSubmitRound}
+                onPress={handleInputScore}
               >
                 <Text className="bg-blue-500 text-white px-4 py-2 rounded text-center text-lg">
                   Submit Score
