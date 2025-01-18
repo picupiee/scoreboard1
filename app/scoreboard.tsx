@@ -11,7 +11,7 @@ import {
   View,
 } from "react-native";
 import RoundHistoryTable from "@/components/RoundHistoryTable";
-import useGameStore from "./_stores/zust-store";
+import useGameStore from "./_stores/gameStore";
 
 export default function Scoreboard() {
   const router = useRouter();
