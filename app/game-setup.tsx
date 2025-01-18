@@ -68,107 +68,97 @@ export default function GameSetup() {
   };
 
   return (
-    <View className="h-full bg-slate-600">
-      <View className="m-4">
-        <TextInput
-          className="text-2xl font-bold mb-4 text-center text-white"
-          placeholder="Enter Game Name"
-          value={gameName}
-          onChangeText={setGameName}
-        />
+    <View className="m-4">
+      {/* <Text className="text-2xl font-bold mb-4 text-center">Game Setup</Text> */}
+      <TextInput
+        className="text-2xl font-bold mb-4 text-center"
+        placeholder="Enter Game Name"
+        value={gameName}
+        onChangeText={setGameName}
+      />
 
-        <View className="flex flex-row justify-around m-4 flex-wrap">
-          <View className="w-44 mr-2 mt-2">
-            <Text className="text-lg font-bold mb-2 text-center text-white">
-              Player 1
-            </Text>
-            <TextInput
-              placeholder="Enter a name..."
-              className="border border-white rounded px-3 py-4 text-xl placeholder:text-center placeholder:text-white"
-              value={teamNames[0]}
-              onChangeText={(text) => updateTeamName(0, text)}
-            />
-          </View>
-          <View className="w-44 mr-2 mt-2">
-            <Text className="text-lg font-bold mb-2 text-center text-white">
-              Player 2
-            </Text>
-            <TextInput
-              placeholder="Enter a name..."
-              className="border border-white rounded px-3 py-4 text-xl placeholder:text-center placeholder:text-white"
-              value={teamNames[1]}
-              onChangeText={(text) => updateTeamName(1, text)}
-            />
-          </View>
-          <View className="w-44 mr-2 mt-2">
-            <Text className="text-lg font-bold mb-2 text-center text-white">
-              Player 3
-            </Text>
-            <TextInput
-              placeholder="Enter a name..."
-              className="border border-white rounded px-3 py-4 text-xl placeholder:text-center placeholder:text-white"
-              value={teamNames[2]}
-              onChangeText={(text) => updateTeamName(2, text)}
-            />
-          </View>
-          <View className="w-44 mr-2 mt-2">
-            <Text className="text-lg font-bold mb-2 text-center text-white">
-              Player 4
-            </Text>
-            <TextInput
-              placeholder="Enter a name..."
-              className="border border-white rounded px-3 py-4 text-xl placeholder:text-center placeholder:text-white"
-              value={teamNames[3]}
-              onChangeText={(text) => updateTeamName(3, text)}
-            />
-          </View>
-        </View>
-
-        <View className="flex-row items-center mb-4">
-          <Switch
-            value={isLimitlessRounds}
-            onValueChange={setIsLimitlessRounds}
-            trackColor={{ false: "#767577", true: "#81b0ff" }}
-            thumbColor={isLimitlessRounds ? "#a8caed" : "#d4d4d4"}
-            ios_backgroundColor="#3e3e3e"
-          />
-          <Text className="ml-2 text-lg text-white">Limitless Round</Text>
-        </View>
-
-        {!isLimitlessRounds && (
-          <View className="mb-4">
-            <Text className="text-lg text-white">Number of Rounds :</Text>
-            <TextInput
-              className="text-lg border-b border-white rounded px-3 py-2 w-16 text-center text-white"
-              value={numRounds.toString()}
-              onChangeText={(text) => setNumRounds(parseInt(text, 10) || 0)}
-              keyboardType="numeric"
-              placeholder="0"
-            />
-          </View>
-        )}
-
-        <View className="mb-4">
-          <Text className="text-lg text-white">Goal Score (Optional):</Text>
+      <View className="flex flex-row justify-around m-4 flex-wrap">
+        <View className="w-44 mr-2 mt-2">
+          <Text className="text-lg font-bold mb-2 text-center">Player 1</Text>
           <TextInput
-            className="text-lg border-b border-white rounded px-3 py-2 w-16 text-center text-white"
-            value={goalScore}
-            onChangeText={setGoalScore}
+            placeholder="Enter a name..."
+            className="border border-b-gray-300 rounded px-3 py-4 text-xl placeholder:text-center"
+            value={teamNames[0]}
+            onChangeText={(text) => updateTeamName(0, text)}
+          />
+        </View>
+        <View className="w-44 mr-2 mt-2">
+          <Text className="text-lg font-bold mb-2 text-center">Player 2</Text>
+          <TextInput
+            placeholder="Enter a name..."
+            className="border border-b-gray-300 rounded px-3 py-4 text-xl placeholder:text-center"
+            value={teamNames[1]}
+            onChangeText={(text) => updateTeamName(1, text)}
+          />
+        </View>
+        <View className="w-44 mr-2 mt-2">
+          <Text className="text-lg font-bold mb-2 text-center">Player 3</Text>
+          <TextInput
+            placeholder="Enter a name..."
+            className="border border-b-gray-300 rounded px-3 py-4 text-xl placeholder:text-center"
+            value={teamNames[2]}
+            onChangeText={(text) => updateTeamName(2, text)}
+          />
+        </View>
+        <View className="w-44 mr-2 mt-2">
+          <Text className="text-lg font-bold mb-2 text-center">Player 4</Text>
+          <TextInput
+            placeholder="Enter a name..."
+            className="border border-b-gray-300 rounded px-3 py-4 text-xl placeholder:text-center"
+            value={teamNames[3]}
+            onChangeText={(text) => updateTeamName(3, text)}
+          />
+        </View>
+      </View>
+
+      <View className="flex-row items-center mb-4">
+        <Switch
+          value={isLimitlessRounds}
+          onValueChange={setIsLimitlessRounds}
+          trackColor={{ false: "#767577", true: "#81b0ff" }}
+          thumbColor={isLimitlessRounds ? "#a8caed" : "#d4d4d4"}
+          ios_backgroundColor="#3e3e3e"
+        />
+        <Text className="ml-2 text-lg">Limitless Round</Text>
+      </View>
+
+      {!isLimitlessRounds && (
+        <View className="mb-4">
+          <Text className="text-lg">Number of Rounds :</Text>
+          <TextInput
+            className="border-b border-gray-600 rounded px-3 py-2 w-16 text-center"
+            value={numRounds.toString()}
+            onChangeText={(text) => setNumRounds(parseInt(text, 10) || 0)}
             keyboardType="numeric"
             placeholder="0"
           />
         </View>
-        <View className="flex flex-col items-center justify-center">
-          <TouchableOpacity
-            className="bg-blue-600 py-2 px-4 rounded"
-            onPress={handleStartGame}
-            accessibilityHint="Start Game"
-          >
-            <Text className="text-lg font-bold text-white">Start Game</Text>
-          </TouchableOpacity>
-        </View>
+      )}
+
+      <View className="mb-4">
+        <Text className="text-lg">Goal Score (Optional):</Text>
+        <TextInput
+          className="text-lg border-b border-gray-600 rounded px-3 py-2 w-16 text-center"
+          value={goalScore}
+          onChangeText={setGoalScore}
+          keyboardType="numeric"
+          placeholder="0"
+        />
       </View>
-      {/* <Text className="text-2xl font-bold mb-4 text-center">Game Setup</Text> */}
+      <View className="flex flex-col items-center justify-center">
+        <TouchableOpacity
+          className="bg-blue-600 py-2 px-4 rounded"
+          onPress={handleStartGame}
+          accessibilityHint="Start Game"
+        >
+          <Text className="text-lg font-bold text-white">Start Game</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
