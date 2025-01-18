@@ -10,7 +10,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import RoundHistoryTable from "@/components/RoundHistoryTable";
+import RoundHistoryTable from "@/app/_components/RoundHistoryTable";
 
 export default function Scoreboard() {
   const router = useRouter();
@@ -87,6 +87,10 @@ export default function Scoreboard() {
         ]
       );
     }
+  };
+
+  const handleFullRound = () => {
+    console.log("Round History Pressed !");
   };
 
   return (
