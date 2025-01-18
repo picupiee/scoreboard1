@@ -24,7 +24,7 @@ export default function GameSetup() {
     "",
   ]);
   const [numRounds, setNumRounds] = useState(0);
-  const [goalScore, setGoalScore] = useState(0);
+  const [goalScore, setGoalScore] = useState("");
   const [isLimitlessRounds, setIsLimitlessRounds] = useState(false);
 
   const router = useRouter();
@@ -71,7 +71,6 @@ export default function GameSetup() {
     <View className="h-full bg-slate-600">
       <View className="m-4">
         <TextInput
-          style={{ outline: "none" }}
           className="text-2xl font-bold mb-4 text-center text-white"
           placeholder="Enter Game Name"
           value={gameName}
@@ -84,9 +83,8 @@ export default function GameSetup() {
               Player 1
             </Text>
             <TextInput
-              style={{ outline: "none" }}
               placeholder="Enter a name..."
-              className="border border-white rounded px-3 py-4 text-xl placeholder:text-center text-white active:cursor-none"
+              className="border border-white rounded px-3 py-4 text-xl placeholder:text-center placeholder:text-white"
               value={teamNames[0]}
               onChangeText={(text) => updateTeamName(0, text)}
             />
@@ -96,9 +94,8 @@ export default function GameSetup() {
               Player 2
             </Text>
             <TextInput
-              style={{ outline: "none" }}
               placeholder="Enter a name..."
-              className="border border-white rounded px-3 py-4 text-xl placeholder:text-center text-white"
+              className="border border-white rounded px-3 py-4 text-xl placeholder:text-center placeholder:text-white"
               value={teamNames[1]}
               onChangeText={(text) => updateTeamName(1, text)}
             />
@@ -108,9 +105,8 @@ export default function GameSetup() {
               Player 3
             </Text>
             <TextInput
-              style={{ outline: "none" }}
               placeholder="Enter a name..."
-              className="border border-white rounded px-3 py-4 text-xl placeholder:text-center text-white"
+              className="border border-white rounded px-3 py-4 text-xl placeholder:text-center placeholder:text-white"
               value={teamNames[2]}
               onChangeText={(text) => updateTeamName(2, text)}
             />
@@ -120,9 +116,8 @@ export default function GameSetup() {
               Player 4
             </Text>
             <TextInput
-              style={{ outline: "none" }}
               placeholder="Enter a name..."
-              className="border border-white rounded px-3 py-4 text-xl placeholder:text-center text-white"
+              className="border border-white rounded px-3 py-4 text-xl placeholder:text-center placeholder:text-white"
               value={teamNames[3]}
               onChangeText={(text) => updateTeamName(3, text)}
             />
@@ -144,7 +139,6 @@ export default function GameSetup() {
           <View className="mb-4">
             <Text className="text-lg text-white">Number of Rounds :</Text>
             <TextInput
-              style={{ outline: "none" }}
               className="text-lg border-b border-white rounded px-3 py-2 w-16 text-center text-white"
               value={numRounds.toString()}
               onChangeText={(text) => setNumRounds(parseInt(text, 10) || 0)}
@@ -157,7 +151,6 @@ export default function GameSetup() {
         <View className="mb-4">
           <Text className="text-lg text-white">Goal Score (Optional):</Text>
           <TextInput
-            style={{ outline: "none" }}
             className="text-lg border-b border-white rounded px-3 py-2 w-16 text-center text-white"
             value={goalScore}
             onChangeText={setGoalScore}
