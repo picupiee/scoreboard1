@@ -33,7 +33,7 @@ const RoundHistoryTable = ({
         {roundHistory.map((roundData) => (
           <View
             key={roundData.round}
-            className="flex flex-row justify-around items-start w-full mt-2"
+            className="flex-row justify-around items-start w-full mt-2 gap-5"
           >
             <Text className="mb-2 border border-white p-2 text-white">
               #{roundData.round}
@@ -41,11 +41,13 @@ const RoundHistoryTable = ({
             {teamNames.map((name, index) => (
               <View
                 key={index}
-                className="flex flex-col items-center justify-center mr-2"
+                className="flex flex-col items-start justify-center mr-2 w-18"
               >
                 {/* <Text key={index}>{name}</Text> */}
-                <Text className="text-white">{roundData.scores[index]}</Text>
-                <Text className="text-white">
+                <Text className="text-white text-center">
+                  {roundData.scores[index]}
+                </Text>
+                <Text className="text-white text-center">
                   ({roundData.submittedScores[index] > 0 ? "+" : ""}
                   {roundData.submittedScores[index]})
                 </Text>
