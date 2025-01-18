@@ -92,8 +92,9 @@ export default function GameSetup() {
               Player 1
             </Text>
             <TextInput
+              style={{ color: "white" }}
               placeholder="Enter a name..."
-              className="border border-white rounded px-3 py-4 text-xl text-center text-white outline-none"
+              className="border border-white rounded px-3 py-4 text-xl text-center placeholder:text-white outline-none"
               value={teamNames[0]}
               onChangeText={(text) => updateTeamName(0, text)}
             />
@@ -103,8 +104,9 @@ export default function GameSetup() {
               Player 2
             </Text>
             <TextInput
+              style={{ color: "white" }}
               placeholder="Enter a name..."
-              className="border border-white rounded px-3 py-4 text-xl text-center text-white outline-none"
+              className="border border-white rounded px-3 py-4 text-xl text-center placeholder:text-white outline-none"
               value={teamNames[1]}
               onChangeText={(text) => updateTeamName(1, text)}
             />
@@ -114,8 +116,9 @@ export default function GameSetup() {
               Player 3
             </Text>
             <TextInput
+              style={{ color: "white" }}
               placeholder="Enter a name..."
-              className="border border-white rounded px-3 py-4 text-xl text-center text-white outline-none"
+              className="border border-white rounded px-3 py-4 text-xl text-center placeholder:text-white outline-none"
               value={teamNames[2]}
               onChangeText={(text) => updateTeamName(2, text)}
             />
@@ -125,8 +128,9 @@ export default function GameSetup() {
               Player 4
             </Text>
             <TextInput
+              style={{ color: "white" }}
               placeholder="Enter a name..."
-              className="border border-white rounded px-3 py-4 text-xl text-center text-white outline-none"
+              className="border border-white rounded px-3 py-4 text-xl text-center placeholder:text-white outline-none"
               value={teamNames[3]}
               onChangeText={(text) => updateTeamName(3, text)}
             />
@@ -160,7 +164,8 @@ export default function GameSetup() {
         <View className="mb-4">
           <Text className="text-lg text-white">Goal Score (Optional):</Text>
           <TextInput
-            className="text-lg border-b border-white rounded px-3 py-2 w-16 text-center text-white"
+            style={{ color: "white" }}
+            className="text-lg border-b border-white rounded px-3 py-2 w-16 text-center placeholder:text-white"
             value={goalScore}
             onChangeText={setGoalScore}
             keyboardType="numeric"
