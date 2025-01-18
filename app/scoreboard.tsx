@@ -19,13 +19,6 @@ export default function Scoreboard() {
   const teamNames = useGameStore((state) => state.teamNames);
   const numRounds = useGameStore((state) => state.numRounds);
   const goalScore = useGameStore((state) => state.goalScore);
-  const scores = useGameStore((state) => state.scores);
-  const roundScores = useGameStore((state) => state.roundScores);
-  const roundHistory = useGameStore((state) => state.roundHistory);
-
-  // Modal state for submitting score after current round end
-  const [modalVisible, setModalVisible] = useState(false);
-
   const addRoundHistory = useGameStore((state) => state.addRoundHistory);
   const setScores = useGameStore((state) => state.setScores);
   const setRoundScores = useGameStore((state) => state.setRoundScores);
@@ -33,6 +26,13 @@ export default function Scoreboard() {
   const setModalVisibleInStore = useGameStore((state) => state.setModalVisible);
   const scoresInStore = useGameStore((state) => state.scores);
   const roundHistoryInStore = useGameStore((state) => state.roundHistory);
+  const roundScores = useGameStore((state) => state.roundScores);
+  const roundHistory = useGameStore((state) => state.roundHistory);
+  
+  // const scores = useGameStore((state) => state.scores);
+  // Modal state for submitting score after current round end
+  const [modalVisible, setModalVisible] = useState(false);
+
 
   // const [roundHistory, setRoundHistory] = useState<
   //   {
