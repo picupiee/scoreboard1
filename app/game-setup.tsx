@@ -180,13 +180,13 @@ export default function GameSetup() {
             placeholder="0"
           />
         </View>
-        <View className="flex flex-col items-center justify-center">
+        <View className="flex flex-col items-center justify-ends">
           <TouchableOpacity
             className="bg-blue-600 py-2 px-4 rounded"
             onPress={handleStartGame}
             accessibilityHint="Start Game"
           >
-            <Text className="text-lg font-bold text-white">Start Game</Text>
+            <Text className="text-2xl font-bold text-white">Start Game</Text>
           </TouchableOpacity>
         </View>
       </View>

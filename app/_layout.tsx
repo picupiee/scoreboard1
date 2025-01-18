@@ -4,7 +4,6 @@ import "../global.css";
 export default function RootLayout() {
   return (
     <Stack screenOptions={{ headerShown: false, statusBarStyle: "dark" }}>
-      <Stack.Screen name="(tabs)" />
       <Stack.Screen name="index" />
       <Stack.Screen name="home" options={{ headerShown: false }} />
       <Stack.Screen name="game-setup" options={{ title: "Setup a New Game" }} />
