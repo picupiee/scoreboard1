@@ -117,21 +117,24 @@ export default function Scoreboard() {
         </TouchableOpacity>
 
         {/* Modal view for submitting score */}
-        <Modal visible={modalVisible} animationType="slide">
-          <View>
-            <Text className="mb-4 mt-10 text-center text-2xl font-semibold underline">
+        <Modal visible={modalVisible} animationType="fade">
+          <View className="bg-slate-900 h-full">
+            <Text className="mb-4 mt-10 text-center text-2xl font-semibold underline text-white">
               Enter Round Scores
             </Text>
             <View className="flex-row items-center justify-center flex-wrap gap-5 sm:gap-8 p-5 sm:p-10">
               {teamNames.map((name, index) => (
                 <View
                   key={index}
-                  className="w-44 border border-gray-400 p-4 flex-col items-center justify-center"
+                  className="w-44 border border-white p-4 flex-col items-center justify-center"
                 >
-                  <Text className="text-2xl font-semibold">{name}</Text>
-                  <View className="w-20 h-10 border mt-2">
+                  <Text className="text-2xl font-semibold text-white">
+                    {name}
+                  </Text>
+                  <View className="w-20 h-10 border border-white mt-2">
                     <TextInput
-                      className="text-2xl font-bold px-1 py-1 text-center placeholder:text-red-200"
+                      style={{ outline: "none" }}
+                      className="text-2xl font-bold px-1 py-1 text-center text-white"
                       placeholder="..."
                       value={roundScores[index].toString()}
                       onChangeText={(text) =>
@@ -149,7 +152,7 @@ export default function Scoreboard() {
                 className="w-1/3 sm:w-1/4"
                 onPress={handleInputScore}
               >
-                <Text className="bg-blue-500 text-white px-4 py-2 rounded text-center text-lg">
+                <Text className="bg-blue-500 text-white px-4 py-2 rounded text-center text-lg font-semibold">
                   Submit Score
                 </Text>
               </TouchableOpacity>
@@ -157,7 +160,7 @@ export default function Scoreboard() {
                 className="w-1/4"
                 onPress={() => setModalVisible(false)}
               >
-                <Text className="bg-red-500 text-white px-4 py-2 rounded text-center text-lg">
+                <Text className="bg-red-500 text-white px-4 py-2 rounded text-center text-lg font-semibold">
                   Cancel
                 </Text>
               </TouchableOpacity>
