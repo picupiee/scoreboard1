@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   Alert,
   Switch,
+  Platform,
 } from "react-native";
 import { Link, router, useRouter } from "expo-router";
 import { useState } from "react";
@@ -37,9 +38,14 @@ export default function GameSetup() {
 
   const handleStartGame = () => {
     if (teamNames.some((name) => name.trim() === "")) {
-      Alert.alert("Error", "Please enter a valid name");
+      if (Platform.OS === "web") {
+        window.alert("Please enter all the players name !");
+      } else {
+        Alert.alert("Error", "Please enter a valid name");
+      }
       return;
     }
+
     if (numRounds < 1 && !isLimitlessRounds) {
       Alert.alert("Error", "Please enter a valid number of rounds !");
       return;
@@ -70,12 +76,15 @@ export default function GameSetup() {
   return (
     <View className="h-full bg-slate-600">
       <View className="m-4">
-        <TextInput
-          className="text-2xl font-bold mb-4 text-center text-white"
-          placeholder="Enter Game Name"
-          value={gameName}
-          onChangeText={setGameName}
-        />
+        <View className="flex-1 items-center justify-center">
+          <TextInput
+            className="text-2xl font-bold mb-4 text-center text-white outline-none w-1/5"
+            placeholder="Enter Game Name"
+            value={gameName}
+            onChangeText={setGameName}
+            maxLength={16}
+          />
+        </View>
 
         <View className="flex flex-row justify-around m-4 flex-wrap">
           <View className="w-44 mr-2 mt-2">
@@ -84,7 +93,7 @@ export default function GameSetup() {
             </Text>
             <TextInput
               placeholder="Enter a name..."
-              className="border border-white rounded px-3 py-4 text-xl placeholder:text-center placeholder:text-white"
+              className="border border-white rounded px-3 py-4 text-xl text-center text-white outline-none"
               value={teamNames[0]}
               onChangeText={(text) => updateTeamName(0, text)}
             />
@@ -95,7 +104,7 @@ export default function GameSetup() {
             </Text>
             <TextInput
               placeholder="Enter a name..."
-              className="border border-white rounded px-3 py-4 text-xl placeholder:text-center placeholder:text-white"
+              className="border border-white rounded px-3 py-4 text-xl text-center text-white outline-none"
               value={teamNames[1]}
               onChangeText={(text) => updateTeamName(1, text)}
             />
@@ -106,7 +115,7 @@ export default function GameSetup() {
             </Text>
             <TextInput
               placeholder="Enter a name..."
-              className="border border-white rounded px-3 py-4 text-xl placeholder:text-center placeholder:text-white"
+              className="border border-white rounded px-3 py-4 text-xl text-center text-white outline-none"
               value={teamNames[2]}
               onChangeText={(text) => updateTeamName(2, text)}
             />
@@ -117,7 +126,7 @@ export default function GameSetup() {
             </Text>
             <TextInput
               placeholder="Enter a name..."
-              className="border border-white rounded px-3 py-4 text-xl placeholder:text-center placeholder:text-white"
+              className="border border-white rounded px-3 py-4 text-xl text-center text-white outline-none"
               value={teamNames[3]}
               onChangeText={(text) => updateTeamName(3, text)}
             />
