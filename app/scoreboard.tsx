@@ -90,16 +90,18 @@ export default function Scoreboard() {
   };
 
   return (
-    <View className="h-full">
+    <View className="h-full bg-slate-600">
       <View className="flex flex-row flex-wrap sm:gap-8 gap-4 items-center justify-center m-2 mt-10 p-5 sm:m-4 sm:p-10">
         {teamNames.map((name, index) => (
           <View
             key={index}
             className="w-44 border border-gray-400 p-4 flex-col items-center justify-center"
           >
-            <Text className="text-2xl font-semibold">{name}</Text>
-            <View className="border mt-2 w-24 h-14 flex items-center justify-center text-center">
-              <Text className="text-3xl font-bold">{scores[index]}</Text>
+            <Text className="text-2xl font-semibold text-white">{name}</Text>
+            <View className="border border-white mt-2 w-24 h-14 flex items-center justify-center text-center text-white">
+              <Text className="text-3xl font-bold text-white">
+                {scores[index]}
+              </Text>
             </View>
           </View>
         ))}
@@ -109,7 +111,7 @@ export default function Scoreboard() {
           onPress={handleEndRounds}
           className="bg-black w-40 h-24 rounded flex justify-center"
         >
-          <Text className="text-white text-lg font-semibold text-center">
+          <Text className="text-white text-lg font-semibold text-center ">
             End Round
           </Text>
         </TouchableOpacity>
@@ -173,7 +175,7 @@ export default function Scoreboard() {
         </TouchableOpacity>
       </View>
 
-      <Text className="font-bold text-2xl text-center border-b-8 border-slate-400 border-spacing-5 px-10">
+      <Text className="font-bold text-2xl text-center border-b-8 border-slate-400 border-spacing-5 px-10 text-white">
         Round History
       </Text>
 
